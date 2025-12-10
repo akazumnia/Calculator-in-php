@@ -11,30 +11,31 @@
         <label>Liczba 1:</label>
         <input type="number" step="any" name="a" required><br><br>
 
-        <label>Liczba 2</label>
+        <label>Liczba 2:</label>
         <input type="number" step="any" name="b" required><br><br>
 
-        <label>Wybierz operacje:</label>
+        <label>Wybierz operację:</label>
         <input type="radio" name="op" value="+" required>Dodawanie<br>
         <input type="radio" name="op" value="-" required>Odejmowanie<br>
         <button type="submit">Oblicz</button>
     </form>
+
     <?php
-    if($_SERVER["REQUEST_METHOD"]=== "POST") {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $a = $_POST['a'];
-        $b - $_POST['b'];
+        $b = $_POST['b'];
         $op = $_POST['op'];
 
-        if($op== '+') {
-            $wynik = $a + $b 
-            echo "<h3>Wynik: $a + $b=$wynik";
-    }
-    if($op== "-") {
-        $wynik = $a - $b
-        echo "Wynik: $a - $b=$wynik";
+        if ($op == '+') {
+            $wynik = $a + $b;
+            echo "<h3>Wynik: $a + $b = $wynik</h3>";
+        }
 
+        if ($op == '-') {
+            $wynik = $a - $b;
+            echo "<h3>Wynik: $a - $b = $wynik</h3>";
+        }
     }
-        
     ?>
 </body>
 </html>
