@@ -17,25 +17,36 @@
         <label>Wybierz operację:</label>
         <input type="radio" name="op" value="+" required>Dodawanie<br>
         <input type="radio" name="op" value="-" required>Odejmowanie<br>
+        <input type="radio" name="op" value="*" required>Mnożenie<br>
+        <input type="radio" name="op" value="/" required>Dzielenie<br>
         <button type="submit">Oblicz</button>
     </form>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $a = $_POST['a'];
-        $b = $_POST['b'];
-        $op = $_POST['op'];
+<?php
+     if ($_SERVER["REQUEST_METHOD"] === "POST") {
+     $a = $_POST['a'];
+    $b = $_POST['b'];
+    $op = $_POST['op'];
 
-        if ($op == '+') {
-            $wynik = $a + $b;
-            echo "<h3>Wynik: $a + $b = $wynik</h3>";
-        }
-
-        if ($op == '-') {
-            $wynik = $a - $b;
-            echo "<h3>Wynik: $a - $b = $wynik</h3>";
+    if ($op == '+') {
+        $wynik = $a + $b;
+        echo "<h3>Wynik: $a + $b = $wynik</h3>";
+    } elseif ($op == '-') {
+        $wynik = $a - $b;
+        echo "<h3>Wynik: $a - $b = $wynik</h3>";
+    } elseif ($op == '*') {
+        $wynik = $a * $b;
+        echo "<h3>Wynik: $a * $b = $wynik</h3>";
+    } elseif ($op == '/') {
+        if ($b == 0) {
+            echo "<h3>Nie dzielimy przez 0!</h3>";
+        } else {
+            $wynik = $a / $b;
+            echo "<h3>Wynik: $a / $b = $wynik</h3>";
         }
     }
-    ?>
+}
+?>
+
 </body>
 </html>
